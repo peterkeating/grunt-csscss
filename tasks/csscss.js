@@ -32,6 +32,14 @@ module.exports = function(grunt) {
       }
 
       /**
+       * Checks to see if the minimum match argument should be enforced.
+       */
+      if (options.minMatch) {
+        args.push('-n')
+        args.push(options.minMatch);
+      }
+
+      /**
        * adds path to file, to be analysed, as an argument.
        */
       args.push(f);
