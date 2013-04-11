@@ -25,6 +25,13 @@ module.exports = function(grunt) {
       }
 
       /**
+       * Checks to see if the results of the analysis should be formatted as json.
+       */
+      if (options.outputJson) {
+        args.push('-j');
+      }
+
+      /**
        * adds path to file, to be analysed, as an argument.
        */
       args.push(f);

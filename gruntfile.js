@@ -9,7 +9,8 @@ module.exports = function(grunt) {
      */
     csscss: {
       options: {
-        verbose: true
+        verbose: true,
+        outputJson: false
       },
       dist: {
         src: ['test/example/style.css', 'test/example/another.css']
