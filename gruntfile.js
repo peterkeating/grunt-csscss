@@ -9,7 +9,7 @@ module.exports = function(grunt) {
      */
     csscss: {
       dist: {
-
+        src: ['test/example/style.css', 'test/example/another.css']
       }
     }
 
