@@ -11,7 +11,9 @@ module.exports = function(grunt) {
       options: {
         verbose: true,
         outputJson: false,
-        minMatch: 2
+        minMatch: 2,
+        compass: true,
+        ignoreProperties: 'margin'
       },
       dist: {
         src: ['test/example/style.css', 'test/example/another.css']

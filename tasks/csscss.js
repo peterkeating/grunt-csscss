@@ -46,6 +46,11 @@ module.exports = function(grunt) {
         args.push(options.minMatch);
       }
 
+      if (options.ignoreProperties) {
+        args.push('--ignore-properties');
+        args.push(options.ignoreProperties);
+      }
+
       /**
        * adds path to file, to be analysed, as an argument.
        */
