@@ -7,6 +7,19 @@ module.exports = function(grunt) {
     /**
      *
      */
+    jshint: {
+      all: [
+        'gruntfile.js',
+        'tasks/*.js'
+      ],
+      options: {
+        jshintrc: '.jshintrc'
+      }
+    },
+
+    /**
+     *
+     */
     csscss: {
       options: {
         verbose: true,
@@ -27,6 +40,8 @@ module.exports = function(grunt) {
    * Loads tasks located in the tasks directory.
    */
   grunt.loadTasks('tasks');
+
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('default', 'csscss');
 };
