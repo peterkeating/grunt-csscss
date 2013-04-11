@@ -42,7 +42,7 @@ module.exports = function(grunt) {
        * Sets the minimum number of rules before a match is found.
        */
       if (options.minMatch) {
-        args.push('-n')
+        args.push('-n');
         args.push(options.minMatch);
       }
 
