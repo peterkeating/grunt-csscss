@@ -46,9 +46,20 @@ module.exports = function(grunt) {
         args.push(options.minMatch);
       }
 
+      /**
+       * Sets which properties should be ignored.
+       */
       if (options.ignoreProperties) {
         args.push('--ignore-properties');
         args.push(options.ignoreProperties);
+      }
+
+      /**
+       * Sets which selectors should be ignored.
+       */
+      if (options.ignoreSelectors) {
+        args.push('--ignore-selectors');
+        args.push(options.ignoreSelectors);
       }
 
       /**

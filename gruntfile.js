@@ -13,7 +13,8 @@ module.exports = function(grunt) {
         outputJson: false,
         minMatch: 2,
         compass: true,
-        ignoreProperties: 'margin'
+        ignoreProperties: 'padding',
+        ignoreSelectors: '.rule-a'
       },
       dist: {
         src: ['test/example/style.css', 'test/example/another.css']
