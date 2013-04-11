@@ -4,5 +4,8 @@
   "description": "Grunt task that runs CSSCSS.",
   "author": "Peter Keating",
   "license": "BSD",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
 }
