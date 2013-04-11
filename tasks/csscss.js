@@ -18,21 +18,28 @@ module.exports = function(grunt) {
       var args = [];
 
       /**
-       * Checks to see if the verbose flag should be added as an argument.
+       * Outputs the rules that have been matched.
        */
       if (options.verbose) {
         args.push('-v');
       }
 
       /**
-       * Checks to see if the results of the analysis should be formatted as json.
+       * Enables Compass extensions when parsing Sass files.
+       */
+      if (options.compass) {
+        args.push('--compass');
+      }
+
+      /**
+       * Returns analysis in JSON format.
        */
       if (options.outputJson) {
         args.push('-j');
       }
 
       /**
-       * Checks to see if the minimum match argument should be enforced.
+       * Sets the minimum number of rules before a match is found.
        */
       if (options.minMatch) {
         args.push('-n')
