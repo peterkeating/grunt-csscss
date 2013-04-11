@@ -7,11 +7,22 @@
 module.exports = function(grunt) {
 
   grunt.registerMultiTask('csscss', 'CSSCSS redundancy analyzer.', function() {
+    /**
+     * Retrieves defined options.
+     */
+    var options = this.options();
 
     var done = this.async();
 
     grunt.util.async.forEachSeries(this.data.src, function(f, next) {
       var args = [];
+
+      /**
+       * Checks to see if the verbose flag should be added as an argument.
+       */
+      if (options.verbose) {
+        args.push('-v');
+      }
 
       /**
        * adds path to file, to be analysed, as an argument.
