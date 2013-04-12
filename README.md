@@ -43,6 +43,14 @@ Enables Compass extensions when parsing Sass.
 
 *[Compass](http://compass-style.org/) must be installed in order to use this option.*
 
+### compassConfig
+
+Type: `String`
+
+Enables Compass extension and specifies path to a config file.
+
+*[Compass](http://compass-style.org/) must be installed in order to use this option.*
+
 ### ignoreProperties
 
 Type: `String`
@@ -141,12 +149,28 @@ csscss: {
 }
 ```
 
+### Analyzing Compass Stylesheet
+
+Example of using CSSCSS to analyze Sass files that are converted using Compass.
+
+```js
+csscss: {
+  options: {
+    compassConfig: 'my/config/file/config.rb'
+  },
+  dist: {
+    src: ['sass/style.scss']
+  }
+}
+```
+
 ## Release History
 
 ### 0.2.0
 
 * Added `showParserErrors` option to output parser errors.
 * Added `shorthand` option to determined whether shorthand should be parsed.
+* Added `compassConfig` option to specify path to Compass config file.
 
 ### 0.1.0 (April 12th 2013)
 

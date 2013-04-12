@@ -1,0 +1,25 @@
+@import "harsh";
+@import "compass/reset";
+
+$color: #000;
+
+.rule-a {
+    border: 1px solid $color;
+    margin: 0;
+    padding: 0;
+}
+
+.rule-b {
+    border: 1px solid $color;
+    margin: 0;
+    padding: 0;
+}
+
+.rule-c {
+    border: 1px solid $color;
+    margin: 0;
+}
+
+.background-color {
+  @include harsh(white, rgb(200,50,50), .95);
+}

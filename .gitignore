@@ -3,3 +3,7 @@ node_modules
 
 # node logging.
 npm-debug.log
+
+# directory creating by the Sass conversion which is done when testing grunt task
+# against Compass stylesheets.
+.sass-cache/

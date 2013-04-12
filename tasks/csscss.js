@@ -34,10 +34,20 @@ module.exports = function(grunt) {
       }
 
       /**
-       * Enables Compass extensions when parsing Sass files.
+       * Enables Compass extensions when parsing Sass files. This argument is not
+       * set if the compassConfig property has been defined.
        */
-      if (options.compass) {
+      if (options.compass && !options.compassConfig) {
         args.push('--compass');
+      }
+
+      /**
+       * Enables Compass extensions when parsing Sass files and specifies the path
+       * to the config file.
+       */
+      if (options.compassConfig) {
+        args.push('--compass-with-config');
+        args.push(options.compassConfig);
       }
 
       /**
