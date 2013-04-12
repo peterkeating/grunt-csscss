@@ -1,2 +1,5 @@
 # ignoring node modules, these should be retrieved using 'npm install' command.
 node_modules
+
+# node logging.
+npm-debug.log

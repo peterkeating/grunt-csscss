@@ -1,9 +1,29 @@
 {
   "name": "grunt-csscss",
-  "version": "0.0.0",
-  "description": "Grunt task that runs CSSCSS.",
-  "author": "Peter Keating",
-  "license": "BSD",
+  "version": "0.1.0",
+  "description": "Grunt task that executes CSSCSS.",
+  "homepage": "https://github.com/peterkeating/grunt-csscss",
+  "author":  {
+    "name": "Peter Keating",
+    "url": "http://peterkeating.co.uk/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/peterkeating/grunt-csscss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peterkeating/grunt-csscss/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/peterkeating/grunt-csscss/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "gruntfile.js",
+  "engines": {
+    "node": "*"
+  },
   "readmeFilename": "README.md",
   "scripts": {
     "test": "grunt"
