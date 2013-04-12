@@ -41,6 +41,8 @@ Default: `false`
 
 Enables Compass extensions when parsing Sass.
 
+*[Compass](http://compass-style.org/) must be installed in order to use this option.*
+
 ### ignoreProperties
 
 Type: `String`
