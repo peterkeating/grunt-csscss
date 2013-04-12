@@ -67,6 +67,13 @@ Default: `false`
 
 Output analysis in JSON format.
 
+### showParserErrors
+
+Type: `Boolean`
+Default: `false`
+
+Outputs parser errors.
+
 ### verbose
 
 Type: `Boolean`
@@ -126,6 +133,10 @@ csscss: {
 ```
 
 ## Release History
+
+### 0.2.0
+
+* Added `showParserErrors` option to output parser errors.
 
 ### 0.1.0 (April 12th 2013)
 

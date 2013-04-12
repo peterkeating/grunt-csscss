@@ -72,6 +72,13 @@ module.exports = function(grunt) {
       }
 
       /**
+       * Sets whether parser errors should be outputted.
+       */
+      if (options.showParserErrors) {
+        args.push('--show-parser-errors');
+      }
+
+      /**
        * adds path to file, to be analysed, as an argument.
        */
       args.push(f);

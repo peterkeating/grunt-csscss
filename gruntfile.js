@@ -28,7 +28,8 @@ module.exports = function(grunt) {
         minMatch: 2,
         compass: true,
         ignoreProperties: 'padding',
-        ignoreSelectors: '.rule-a'
+        ignoreSelectors: '.rule-a',
+        showParserErrors: true
       },
       dist: {
         src: ['test/example/style.css', 'test/example/another.css']
