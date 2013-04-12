@@ -76,12 +76,21 @@ module.exports = function(grunt) {
        */
       args.push(f);
 
+      /**
+       * Outputs the file that is being analysed.
+       */
+      grunt.log.writeln(f);
+      grunt.verbose.writeln('csscss ' + args.join(' '));
+
+      /**
+       * Executes the csscss command.
+       */
       var child = grunt.util.spawn({
         cmd: 'csscss',
         args: args
       }, function(error, result, code) {
         if (code === 127) {
-          return grunt.warn('You need to have Ruby and csscss installed and in your PATH for this task to run.');
+          return grunt.warn('Ruby and csscss have to be installed and in your PATH for this task to run.');
         }
 
         next(error);
