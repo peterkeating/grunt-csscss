@@ -8,7 +8,7 @@ Grunt task that runs [CSSCSS](http://zmoazeni.github.io/csscss/), a CSS redundan
 
 CSSCSS runs on Ruby (`v1.9.x` and up), to check Ruby is installed on your machine use `ruby -v`. To install the CSSCSS gem run `gem install csscss` command, this will grab the latest version.
 
-Currently this Grunt task handles all the features for CSSCSS that are available with version **1.0.0**.
+Currently grunt-csscss handles all the features for CSSCSS that are available with version **1.0.0**.
 
 ## Getting Started
 
@@ -73,3 +73,61 @@ Type: `Boolean`
 Default: `false`
 
 Displays the CSS properties that have been matched.
+
+## Examples
+
+### Configuration Example
+
+Basic example of a Grunt config containing the CSSCSS task.
+```js
+grunt.initConfig({
+  csscss: {
+    dist: {
+      src: ['css/style.css']
+    }
+  }
+});
+
+grunt.loadNpmTasks('grunt-csscss');
+
+grunt.registerTask('default', ['csscss']);
+```
+
+### Multiple Files
+
+Running CSSCSS against multiple CSS files. All the files specified in the `src` array will be analyzed by CSSCSS.
+```js
+csscss: {
+  dist: {
+    src: ['css/style.css', 'css/another.css']
+  }
+}
+```
+
+### Specifying Options
+
+Example of using the [options](https://github.com/peterkeating/grunt-csscss/edit/master/README.md#options).
+
+```js
+csscss: {
+  options: {
+    colorize: false,
+    verbose: true,
+    outputJson: false,
+    minMatch: 2,
+    compass: true,
+    ignoreProperties: 'padding',
+    ignoreSelectors: '.rule-a'
+  },
+  dist: {
+    src: ['css/style.css', 'css/another.css']
+  }
+}
+```
+
+## Release History
+
+### 0.1.0 (April 12th 2013)
+
+* Initial release supporting all options for CSSCSS v1.0.0.
+
