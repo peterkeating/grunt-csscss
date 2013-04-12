@@ -1,6 +1,6 @@
 {
   "name": "grunt-csscss",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Grunt task that executes CSSCSS.",
   "homepage": "https://github.com/peterkeating/grunt-csscss",
   "author":  {
