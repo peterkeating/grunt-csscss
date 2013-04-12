@@ -11,6 +11,7 @@ module.exports = function(grunt) {
      * Retrieves defined options.
      */
     var options = this.options();
+    grunt.verbose.writeflags(options, 'Options');
 
     var done = this.async();
 
