@@ -1,3 +1,4 @@
 .npmignore
 test
 gruntfile.js
+.travis.yml
