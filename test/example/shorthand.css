@@ -1,0 +1,10 @@
+.foo {
+    border: 1px solid #000;
+    color: #000;
+    padding: 10px 5px;
+}
+.bar {
+    border: 1px solid #fff;
+    color: #000;
+    padding: 10px 2px;
+}

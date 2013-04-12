@@ -29,10 +29,11 @@ module.exports = function(grunt) {
         compass: true,
         ignoreProperties: 'padding',
         ignoreSelectors: '.rule-a',
-        showParserErrors: true
+        showParserErrors: true,
+        shorthand: false
       },
       dist: {
-        src: ['test/example/style.css', 'test/example/another.css']
+        src: ['test/example/style.css', 'test/example/another.css', 'test/example/shorthand.css']
       }
     }
 

@@ -79,6 +79,13 @@ module.exports = function(grunt) {
       }
 
       /**
+       * Sets whether shorthand should be matched.
+       */
+      if (options.shorthand === false) {
+        args.push('--no-match-shorthand');
+      }
+
+      /**
        * adds path to file, to be analysed, as an argument.
        */
       args.push(f);

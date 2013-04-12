@@ -67,6 +67,13 @@ Default: `false`
 
 Output analysis in JSON format.
 
+### shorthand
+
+Type: `Boolean`
+Default: `true`
+
+Whether shorthand CSS declaration should be parsed. Check [here for a great explanation](https://github.com/zmoazeni/csscss/pull/20) of this option.
+
 ### showParserErrors
 
 Type: `Boolean`
@@ -137,6 +144,7 @@ csscss: {
 ### 0.2.0
 
 * Added `showParserErrors` option to output parser errors.
+* Added `shorthand` option to determined whether shorthand should be parsed.
 
 ### 0.1.0 (April 12th 2013)
 
