@@ -26,6 +26,14 @@ module.exports = function(grunt) {
       }
 
       /**
+       * Flag indicating whether the output should be colorized. This is true by
+       * default.
+       */
+      if (options.colorize === false) {
+        args.push('--no-color');
+      }
+
+      /**
        * Enables Compass extensions when parsing Sass files.
        */
       if (options.compass) {

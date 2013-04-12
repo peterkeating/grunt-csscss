@@ -22,6 +22,7 @@ module.exports = function(grunt) {
      */
     csscss: {
       options: {
+        colorize: false,
         verbose: true,
         outputJson: false,
         minMatch: 2,
