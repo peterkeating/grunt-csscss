@@ -131,3 +131,6 @@ csscss: {
 
 * Initial release supporting all options for CSSCSS v1.0.0.
 
+## Credits
+
+All credit goes to [Zach Moazeni](https://github.com/zmoazeni) for his brilliant work on [CSSCSS](https://github.com/zmoazeni/csscss), great job Zach!
