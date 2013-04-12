@@ -5,6 +5,9 @@
   "author": "Peter Keating",
   "license": "BSD",
   "readmeFilename": "README.md",
+  "scripts": {
+    "test": "grunt"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.4.3"
