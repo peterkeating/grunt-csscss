@@ -166,7 +166,7 @@ csscss: {
 
 ## Release History
 
-### 0.2.0
+### 0.2.0 (April 13th 2013)
 
 * Added `showParserErrors` option to output parser errors.
 * Added `shorthand` option to determined whether shorthand should be parsed.
