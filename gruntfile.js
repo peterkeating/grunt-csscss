@@ -31,7 +31,8 @@ module.exports = function(grunt) {
         ignoreSelectors: '.rule-a',
         showParserErrors: true,
         shorthand: false,
-        compassConfig: 'test/example/compass/config.rb'
+        compassConfig: 'test/example/compass/config.rb',
+        failWhenDuplicates: false
       },
       dist: {
         src: ['test/example/style.css', 'test/example/shorthand.css', 'test/example/compass/sass/screen.scss']

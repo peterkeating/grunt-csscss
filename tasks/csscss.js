@@ -13,6 +13,11 @@ module.exports = function(grunt) {
     var options = this.options();
     grunt.verbose.writeflags(options, 'Options');
 
+    /**
+     * Flag for whether any duplicates were found by CSSCSS.
+     */
+    var hasDuplicates = false;
+
     var done = this.async();
 
     grunt.util.async.forEachSeries(this.data.src, function(f, next) {
@@ -123,9 +128,27 @@ module.exports = function(grunt) {
       /**
        * displays the output and error streams via the parent process.
        */
-      child.stdout.pipe(process.stdout);
-      child.stderr.pipe(process.stderr);
-    }, done);
+      child.stdout.on('data', function(buf) {
+        grunt.log.writeln(String(buf));
+        hasDuplicates = true;
+      });
+
+      child.stderr.on('data', function(buf) {
+        grunt.log.writeln(String(buf));
+      });
+
+    }, function () {
+
+      /**
+       * If instructed to fail when a match happens and matches found lets fail
+       * the grunt build.
+       */
+      if (options.failWhenDuplicates && hasDuplicates) {
+        grunt.fail.warn("Failed due to matches found by CSSCSS.");
+      }
+
+      done();
+    });
 
   });
 
