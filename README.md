@@ -173,6 +173,10 @@ csscss: {
 
 ## Release History
 
+### 0.3.0
+
+* Added `failWhenDuplicates` option to fail Grunt task when CSSCSS finds rule sets with duplicate declarations.
+
 ### 0.2.0 (April 13th 2013)
 
 * Added `showParserErrors` option to output parser errors.
