@@ -1,0 +1,16 @@
+.rule-a {
+    font-size: 1em;
+    margin: 1em;
+    padding: 0;
+}
+
+.rule-b {
+    background-color: #ff0;
+    margin: 0;
+    padding: 0;
+}
+
+.rule-c {
+    border: 1px solid #f0f;
+    margin: 14px;
+}

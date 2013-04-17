@@ -36,6 +36,18 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['test/example/style.css', 'test/example/shorthand.css', 'test/example/compass/sass/screen.scss']
+      },
+
+      /**
+       * Tests that the grunt task doesn't fail when outputting JSON and the failWhenDuplicates
+       * option is set to true.
+       */
+      outputJsonTest: {
+        options: {
+          failWhenDuplicates: true,
+          outputJson: true
+        },
+        src: ['test/example/no-duplicates.css']
       }
     }
 

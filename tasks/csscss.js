@@ -129,8 +129,17 @@ module.exports = function(grunt) {
        * displays the output and error streams via the parent process.
        */
       child.stdout.on('data', function(buf) {
-        grunt.log.writeln(String(buf));
-        hasDuplicates = true;
+        var output = String(buf);
+        grunt.log.writeln(output);
+
+        /**
+         * When outputting JSON from CSSCSS an empty array will be outputted, this
+         * should be ignored and shouldn't cause the grunt task to fail if no other
+         * duplicates are found.
+         */
+        if (!(options.outputJson && JSON.parse(output).length === 0)) {
+          hasDuplicates = true;
+        }
       });
 
       child.stderr.on('data', function(buf) {
