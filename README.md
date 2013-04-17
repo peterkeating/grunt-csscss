@@ -175,7 +175,7 @@ csscss: {
 
 ### 0.3.0 (April 16th 2013)
 
-* Added `failWhenDuplicates` option to fail Grunt task when CSSCSS finds rule sets with duplicate declarations.
+* Added `failWhenDuplicates` option to fail Grunt task when CSSCSS finds rule sets with duplicate declarations. ([#2](https://github.com/peterkeating/grunt-csscss/issues/2))
 
 ### 0.2.0 (April 13th 2013)
 
