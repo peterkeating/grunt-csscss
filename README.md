@@ -173,6 +173,11 @@ csscss: {
 
 ## Release History
 
+### 0.3.1 (April 17th 2013)
+
+* Fixed bug with grunt task failing when CSSCSS outputs JSON even though duplicates weren't found. ([#3](https://github.com/peterkeating/grunt-csscss/issues/3))
+* Performance improvements by moving re-used argument construction outside the file loop.
+
 ### 0.3.0 (April 16th 2013)
 
 * Added `failWhenDuplicates` option to fail Grunt task when CSSCSS finds rule sets with duplicate declarations. ([#2](https://github.com/peterkeating/grunt-csscss/issues/2))
