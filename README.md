@@ -66,6 +66,15 @@ Type: `String`
 
 Comma seperated list of CSS properties that should be ignored when finding matches.
 
+### ignoreSassMixins
+
+Type: `Boolean`
+Default: `false`
+
+Flag indicating whether matches in Sass mixins should be ignored.
+
+*This is an experimental feature.*
+
 ### ignoreSelectors
 
 Type: `String`
