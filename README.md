@@ -43,11 +43,13 @@ Enables Compass extensions when parsing Sass.
 
 *[Compass](http://compass-style.org/) must be installed in order to use this option.*
 
-### compassConfig
+### compassConfig - DEPRECATED
 
 Type: `String`
 
 Enables Compass extension and specifies path to a config file.
+
+**This option is deprecated, the require option should be used.**
 
 *[Compass](http://compass-style.org/) must be installed in order to use this option.*
 
@@ -97,6 +99,14 @@ Type: `Boolean`
 Default: `false`
 
 Outputs parser errors.
+
+### require
+
+Type: `string`
+
+Path to a ruby file that is loaded before running CSSCSS.
+
+*[Compass](http://compass-style.org/) must be installed in order to use this option.*
 
 ### verbose
 
