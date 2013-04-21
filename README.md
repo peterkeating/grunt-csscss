@@ -8,7 +8,7 @@ Grunt task that runs [CSSCSS](http://zmoazeni.github.io/csscss/), a CSS redundan
 
 CSSCSS runs on Ruby (`v1.9.x` and up), to check Ruby is installed on your machine use `ruby -v`. To install the CSSCSS gem run `gem install csscss` command, this will grab the latest version.
 
-Currently grunt-csscss handles all the features for CSSCSS that are available with version **1.2.0**.
+Currently grunt-csscss handles all the features for CSSCSS that are available with version **1.3.1**.
 
 ## Getting Started
 
@@ -191,6 +191,13 @@ csscss: {
 ```
 
 ## Release History
+
+### 0.4.0 (April 21st 2013)
+
+* Added `ignoreSassMixins` option to ignore matches in Sass mixins.
+* Added `require` option for loading Ruby file before running CSSCSS.
+* Updated the `compassConfig` option to use the `--require` argument instead of the now deprecated `--compass-with-config` argument.
+* Deprecated `compassConfig` option.
 
 ### 0.3.1 (April 17th 2013)
 
