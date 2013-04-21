@@ -38,8 +38,7 @@ module.exports = function(grunt) {
 
       compass: {
         options: {
-          compassConfig: 'test/example/compass/config.rb',
-          compass: true
+          require: 'test/example/compass/config.rb'
         },
         src: ['test/example/compass/sass/screen.scss']
       },
