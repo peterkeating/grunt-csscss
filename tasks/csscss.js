@@ -55,6 +55,8 @@ module.exports = function(grunt) {
       args.push('--compass');
       args.push('--require');
       args.push(options.compassConfig);
+
+      grunt.log.writeln('WARNING: compassConifg is DEPRECATED, please use the "require" option');
     }
 
     /**
