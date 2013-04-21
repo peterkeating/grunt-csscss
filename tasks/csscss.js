@@ -50,7 +50,8 @@ module.exports = function(grunt) {
      * to the config file.
      */
     if (options.compassConfig) {
-      args.push('--compass-with-config');
+      args.push('--compass');
+      args.push('--require');
       args.push(options.compassConfig);
     }
 

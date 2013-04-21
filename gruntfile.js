@@ -26,16 +26,22 @@ module.exports = function(grunt) {
         verbose: true,
         outputJson: false,
         minMatch: 2,
-        compass: true,
         ignoreProperties: 'padding',
         ignoreSelectors: '.rule-a',
         showParserErrors: true,
         shorthand: false,
-        compassConfig: 'test/example/compass/config.rb',
         failWhenDuplicates: false
       },
       dist: {
-        src: ['test/example/style.css', 'test/example/shorthand.css', 'test/example/compass/sass/screen.scss']
+        src: ['test/example/style.css', 'test/example/shorthand.css']
+      },
+
+      compass: {
+        options: {
+          compassConfig: 'test/example/compass/config.rb',
+          compass: true
+        },
+        src: ['test/example/compass/sass/screen.scss']
       },
 
       /**
