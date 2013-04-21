@@ -36,9 +36,13 @@ module.exports = function(grunt) {
         src: ['test/example/style.css', 'test/example/shorthand.css']
       },
 
+      /**
+       * Tests running the grunt task in a Compass setup.
+       */
       compass: {
         options: {
-          require: 'test/example/compass/config.rb'
+          require: 'test/example/compass/config.rb',
+          ignoreSassMixins: true
         },
         src: ['test/example/compass/sass/screen.scss']
       },

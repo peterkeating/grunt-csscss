@@ -93,6 +93,13 @@ module.exports = function(grunt) {
     }
 
     /**
+     * Sets whether Sass mixins should be ignored.
+     */
+    if (options.ignoreSassMixins) {
+      args.push('--ignore-sass-mixins');
+    }
+
+    /**
      * Sets which selectors should be ignored.
      */
     if (options.ignoreSelectors) {
