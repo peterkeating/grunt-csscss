@@ -182,7 +182,7 @@ Example of using CSSCSS to analyze Sass files that are converted using Compass.
 ```js
 csscss: {
   options: {
-    compassConfig: 'my/config/file/config.rb'
+    require: 'my/config/file.rb'
   },
   dist: {
     src: ['sass/style.scss']
