@@ -156,7 +156,7 @@ csscss: {
 
 ### Specifying Options
 
-Example of using the [options](https://github.com/peterkeating/grunt-csscss/edit/master/README.md#options).
+Example of using the [options](https://github.com/peterkeating/grunt-csscss#options).
 
 ```js
 csscss: {
