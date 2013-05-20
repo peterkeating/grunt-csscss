@@ -63,7 +63,7 @@ module.exports = function(grunt) {
        * Tests that CSSCSS handles a glob pattern.
        */
       globbing: {
-        src: ['test/example/*.css']
+        src: ['test/example/_scss/*.scss']
       }
     }
 
