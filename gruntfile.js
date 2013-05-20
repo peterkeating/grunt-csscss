@@ -57,6 +57,13 @@ module.exports = function(grunt) {
           outputJson: true
         },
         src: ['test/example/no-duplicates.css']
+      },
+
+      /**
+       * Tests that CSSCSS handles a glob pattern.
+       */
+      globbing: {
+        src: ['test/example/*.css']
       }
     }
 
