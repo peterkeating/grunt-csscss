@@ -22,6 +22,15 @@ module.exports = function(grunt) {
 
     var args = [];
 
+    args.push('csscss');
+
+    /**
+     * Flag indicating whether CSSCSS should be run in the context of a bundle.
+     */
+    if (options.bundleExec) {
+      args.unshift('bundle', 'exec');
+    }
+
     /**
      * Outputs the rules that have been matched.
      */
@@ -139,7 +148,7 @@ module.exports = function(grunt) {
        * Executes the csscss command.
        */
       var child = grunt.util.spawn({
-        cmd: 'csscss',
+        cmd: cmdArgs.shift(),
         args: cmdArgs
       }, function(error, result, code) {
         if (code === 127) {

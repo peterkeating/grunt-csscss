@@ -27,6 +27,13 @@ grunt.loadNpmTasks('grunt-csscss');
 ```
 ## Options
 
+### bundleExec
+
+Type: `Boolean`
+Default: `false`
+
+Run CSSCSS with [bundle exec](http://gembundler.com/).
+
 ### colorize
 
 Type: `Boolean`
