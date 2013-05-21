@@ -197,6 +197,18 @@ csscss: {
 }
 ```
 
+### Specifying Files with Glob Pattern
+
+Example of using a glob pattern to target many files that should be analysed by CSSCSS. The example below will analyse all the files in the `css` directory that have an extension of `.css`.
+
+```js
+csscss: {
+  dist: {
+    src: ['css/*.css']
+  }
+}
+```
+
 ## Release History
 
 ### 0.5.0 (Unreleased)
