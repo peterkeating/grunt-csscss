@@ -213,7 +213,8 @@ csscss: {
 
 ### 0.5.0 (Unreleased)
 
-* Fixed typos in the documentation ([#5](https://github.com/peterkeating/grunt-csscss/issues/5))
+* Specifying which files CSSCSS should analyse now supports glob patterns. ([#7](https://github.com/peterkeating/grunt-csscss/issues/7))
+* Fixed typos in the documentation. ([#5](https://github.com/peterkeating/grunt-csscss/issues/5))
 * Added `bundleExec` option to run CSSCSS in the context of a bundle. ([#6](https://github.com/peterkeating/grunt-csscss/issues/6))
 
 ### 0.4.0 (April 21st 2013)
