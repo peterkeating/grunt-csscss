@@ -7,6 +7,77 @@
 module.exports = function(grunt) {
 
   grunt.registerMultiTask('csscss', 'CSSCSS redundancy analyzer.', function() {
+
+    var glob = require('glob');
+
+    /**
+     * Asynchronously loops through the provided files and puts them through the
+     * CSSCSS tool.
+     */
+    function analyzeFiles(files) {
+      grunt.util.async.forEachSeries(files, function(f, next) {
+
+        /**
+         * adds the file path as the final argument, this goes into a new array so
+         * the file doesn't get used in the next iteration.
+         */
+        var cmdArgs = args.concat([f]);
+
+        /**
+         * Outputs the file that is being analysed.
+         */
+        grunt.log.writeln(f);
+        grunt.verbose.writeln('csscss ' + cmdArgs.join(' '));
+
+        /**
+         * Executes the csscss command.
+         */
+        var child = grunt.util.spawn({
+          cmd: cmdArgs.shift(),
+          args: cmdArgs
+        }, function(error, result, code) {
+          if (code === 127) {
+            return grunt.warn('Ruby and csscss have to be installed and in your PATH for this task to run.');
+          }
+
+          next(error);
+        });
+
+        /**
+         * displays the output and error streams via the parent process.
+         */
+        child.stdout.on('data', function(buf) {
+          var output = String(buf);
+          grunt.log.writeln(output);
+
+          /**
+           * When outputting JSON from CSSCSS an empty array will be outputted, this
+           * should be ignored and shouldn't cause the grunt task to fail if no other
+           * duplicates are found.
+           */
+          if (!(options.outputJson && JSON.parse(output).length === 0)) {
+            hasDuplicates = true;
+          }
+        });
+
+        child.stderr.on('data', function(buf) {
+          grunt.log.writeln(String(buf));
+        });
+
+      }, function () {
+
+        /**
+         * If instructed to fail when a match happens and matches found lets fail
+         * the grunt build.
+         */
+        if (options.failWhenDuplicates && hasDuplicates) {
+          grunt.fail.warn("Failed due to matches found by CSSCSS.");
+        }
+
+        done();
+      });
+    }
+
     /**
      * Retrieves defined options.
      */
@@ -17,9 +88,11 @@ module.exports = function(grunt) {
      * Flag for whether any duplicates were found by CSSCSS.
      */
     var hasDuplicates = false;
-
     var done = this.async();
 
+    /**
+     * Contains the arguments that are to be passed to CSSCSS.
+     */
     var args = [];
 
     args.push('csscss');
@@ -130,68 +203,28 @@ module.exports = function(grunt) {
       args.push('--no-match-shorthand');
     }
 
+    /**
+     * Array of files that are to be analyzed by CSSCSS.
+     */
+    var filesToBeAnalyzed = [];
+
     grunt.util.async.forEachSeries(this.data.src, function(f, next) {
-
-      /**
-       * adds the file path as the final argument, this goes into a new array so
-       * the file doesn't get used in the next iteration.
-       */
-      var cmdArgs = args.concat([f]);
-
-      /**
-       * Outputs the file that is being analysed.
-       */
-      grunt.log.writeln(f);
-      grunt.verbose.writeln('csscss ' + cmdArgs.join(' '));
-
-      /**
-       * Executes the csscss command.
-       */
-      var child = grunt.util.spawn({
-        cmd: cmdArgs.shift(),
-        args: cmdArgs
-      }, function(error, result, code) {
-        if (code === 127) {
-          return grunt.warn('Ruby and csscss have to be installed and in your PATH for this task to run.');
-        }
-
-        next(error);
-      });
-
-      /**
-       * displays the output and error streams via the parent process.
-       */
-      child.stdout.on('data', function(buf) {
-        var output = String(buf);
-        grunt.log.writeln(output);
-
+      glob(f, options, function (er, files) {
         /**
-         * When outputting JSON from CSSCSS an empty array will be outputted, this
-         * should be ignored and shouldn't cause the grunt task to fail if no other
-         * duplicates are found.
+         * Loops through the matched files and ensures that each file is only
+         * processed once.
          */
-        if (!(options.outputJson && JSON.parse(output).length === 0)) {
-          hasDuplicates = true;
+        for (var j = 0; j < files.length; j++) {
+          if (filesToBeAnalyzed.indexOf(files[j]) < 0) {
+            filesToBeAnalyzed.push(files[j]);
+          }
         }
-      });
 
-      child.stderr.on('data', function(buf) {
-        grunt.log.writeln(String(buf));
+        next();
       });
-
     }, function () {
-
-      /**
-       * If instructed to fail when a match happens and matches found lets fail
-       * the grunt build.
-       */
-      if (options.failWhenDuplicates && hasDuplicates) {
-        grunt.fail.warn("Failed due to matches found by CSSCSS.");
-      }
-
-      done();
+      analyzeFiles(filesToBeAnalyzed);
     });
-
   });
 
 };
