@@ -211,7 +211,7 @@ csscss: {
 
 ## Release History
 
-### 0.5.0 (Unreleased)
+### 0.5.0 (June 4th 2013)
 
 * Specifying which files CSSCSS should analyse now supports glob patterns. ([#7](https://github.com/peterkeating/grunt-csscss/issues/7))
 * Fixed typos in the documentation. ([#5](https://github.com/peterkeating/grunt-csscss/issues/5))
