@@ -209,6 +209,21 @@ csscss: {
 }
 ```
 
+### Outputting analysis to a file.
+
+Example of using the Grunt task to output the analysis from CSSCSS to a local file. The example below will create (if necessary) `output.json` file, where it will write the output from CSSCSS. If the `outputJson` property is set to true (like in the example below) then valid JSON will be written to the file.
+
+```js
+csscss: {
+  options: {
+    outputJson: true
+  },
+  dist: {
+    'output.json' ['css/style.css']
+  }
+}
+```
+
 ## Release History
 
 ### 0.5.0 (June 4th 2013)

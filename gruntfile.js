@@ -64,9 +64,20 @@ module.exports = function(grunt) {
        */
       globbing: {
         src: ['test/example/*.css']
+      },
+
+      /**
+       * Tests outputting CSSCSS findings to a file.
+       */
+      outputToFile: {
+        options: {
+          outputJson: true
+        },
+        files: {
+          'ignore/output.json': ['test/example/style.css', 'test/example/shorthand.css']
+        }
       }
     }
-
   });
 
   /**

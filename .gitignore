@@ -7,3 +7,6 @@ npm-debug.log
 # directory creating by the Sass conversion which is done when testing grunt task
 # against Compass stylesheets.
 .sass-cache/
+
+# convenient directory for storing files that should be ignored by Git.
+ignore/

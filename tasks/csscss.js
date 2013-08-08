@@ -13,10 +13,17 @@ module.exports = function(grunt) {
      * CSSCSS tool.
      */
     function analyze(files) {
+
       /**
        * Loops over all the files specified in the src array.
        */
       grunt.util.async.forEachSeries(files, function(file, next) {
+
+        /**
+         * Stores the output that is to be written to the file.dest, if one is
+         * specified.
+         */
+        var output = options.outputJson ? '{' : '';
 
         /**
          * Loops over all the matches files in the src in case there are multiple.
@@ -33,6 +40,9 @@ module.exports = function(grunt) {
            * Outputs the file that is being analysed.
            */
           grunt.log.writeln(fileToBeAnalyzed);
+
+          output += (options.outputJson) ? '\n\t"' + fileToBeAnalyzed + '": ' : fileToBeAnalyzed + '\n';
+
           grunt.verbose.writeln('csscss ' + cmdArgs.join(' '));
 
           /**
@@ -50,18 +60,23 @@ module.exports = function(grunt) {
           });
 
           /**
-           * displays the output and error streams via the parent process.
+           * Displays the output and error streams via the parent process.
            */
           child.stdout.on('data', function(buf) {
-            var output = String(buf);
-            grunt.log.writeln(output);
+            var childOutput = String(buf);
+            grunt.log.writeln(childOutput);
+
+            /**
+             * Substring removes the carriage return from CSSCSS.
+             */
+            output += (options.outputJson) ? childOutput.substring(0, childOutput.length - 2) + ',' : childOutput;
 
             /**
              * When outputting JSON from CSSCSS an empty array will be outputted, this
              * should be ignored and shouldn't cause the grunt task to fail if no other
              * duplicates are found.
              */
-            if (!(options.outputJson && JSON.parse(output).length === 0)) {
+            if (!(options.outputJson && JSON.parse(childOutput).length === 0)) {
               hasDuplicates = true;
             }
           });
@@ -71,9 +86,26 @@ module.exports = function(grunt) {
           });
 
         }, function () {
+
+          /**
+           * Removes the final comma so valid JSON is outputted. Also the end brace
+           * for the JSON object is included.
+           */
+          if (options.outputJson) {
+            output = output.substring(0, output.length - 1);
+            output += '\n}';
+          }
+
+          /**
+           * Write the output to the destination file if one was specified.
+           */
+          if (file.dest) {
+            grunt.file.write(file.dest, output);
+          }
           next();
         });
       }, function () {
+
         /**
          * If instructed to fail when a match happens and matches found lets fail
          * the grunt build.
@@ -213,5 +245,4 @@ module.exports = function(grunt) {
 
     analyze(this.files);
   });
-
 };
