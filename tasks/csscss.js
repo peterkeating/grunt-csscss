@@ -170,20 +170,6 @@ module.exports = function(grunt) {
     /**
      * Enables Compass extensions when parsing Sass files and specifies the path
      * to the config file.
-     * The compassConfig option is deprecated and will be removed in a future release.
-     * The require option should be used instead.
-     */
-    if (options.compassConfig && !options.require) {
-      args.push('--compass');
-      args.push('--require');
-      args.push(options.compassConfig);
-
-      grunt.log.writeln('WARNING: compassConfig is DEPRECATED, please use the "require" option.');
-    }
-
-    /**
-     * Enables Compass extensions when parsing Sass files and specifies the path
-     * to the config file.
      */
     if (options.require) {
       args.push('--compass');
