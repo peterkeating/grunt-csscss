@@ -1,3 +1,9 @@
+### 0.6.0 (August 17th 2013)
+
+* Removed `compassConfig` option.
+* Refactored task to use [`this.files` instead of `this.data`](http://dontkry.com/posts/code/2013-04-24-use-this-files.html).
+* Added ability to write output from CSSCSS to a file.
+
 ### 0.5.0 (June 4th 2013)
 
 * Specifying which files CSSCSS should analyse now supports glob patterns. ([#7](https://github.com/peterkeating/grunt-csscss/issues/7))
