@@ -2,7 +2,7 @@
 
 * Removed `compassConfig` option.
 * Refactored task to use [`this.files` instead of `this.data`](http://dontkry.com/posts/code/2013-04-24-use-this-files.html).
-* Added ability to write output from CSSCSS to a file.
+* Added ability to write output from CSSCSS to a file. ([#8](https://github.com/peterkeating/grunt-csscss/issues/8))
 
 ### 0.5.0 (June 4th 2013)
 
