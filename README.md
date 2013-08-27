@@ -209,7 +209,7 @@ csscss: {
     outputJson: true
   },
   dist: {
-    'output.json' ['css/style.css']
+    'output.json': ['css/style.css']
   }
 }
 ```
