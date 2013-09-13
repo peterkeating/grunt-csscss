@@ -1,3 +1,7 @@
+### 0.6.1 (September 13th 2013)
+
+* Fixed typo in documentation example courtesy of [joshmatz](https://github.com/joshmatz). ([#9](https://github.com/peterkeating/grunt-csscss/pull/9))
+
 ### 0.6.0 (August 17th 2013)
 
 * Removed `compassConfig` option.
