@@ -205,11 +205,13 @@ Example of using the Grunt task to output the analysis from CSSCSS to a local fi
 
 ```js
 csscss: {
-  options: {
-    outputJson: true
-  },
   dist: {
-    'output.json': ['css/style.css']
+    options: {
+      outputJson: true
+    },
+    files: {
+      'output.json': ['css/style.css']
+    }
   }
 }
 ```
