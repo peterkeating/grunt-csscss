@@ -34,7 +34,12 @@ module.exports = function(grunt) {
            * adds the file path as the final argument, this goes into a new array so
            * the file doesn't get used in the next iteration.
            */
-          var cmdArgs = args.concat([fileToBeAnalyzed]);
+          var cmdArgs = args.concat([fileToBeAnalyzed]),
+
+            /**
+             * Stores the output from CSSCSS.
+             */
+            childOutput = '';
 
           /**
            * Outputs the file that is being analysed.
@@ -56,14 +61,6 @@ module.exports = function(grunt) {
               return grunt.warn('Ruby and csscss have to be installed and in your PATH for this task to run.');
             }
 
-            innerNext(error);
-          });
-
-          /**
-           * Displays the output and error streams via the parent process.
-           */
-          child.stdout.on('data', function(buf) {
-            var childOutput = String(buf);
             grunt.log.writeln(childOutput);
 
             /**
@@ -79,6 +76,15 @@ module.exports = function(grunt) {
             if (!(options.outputJson && JSON.parse(childOutput).length === 0)) {
               hasDuplicates = true;
             }
+
+            innerNext(error);
+          });
+
+          /**
+           * Displays the output and error streams via the parent process.
+           */
+          child.stdout.on('data', function(buf) {
+            childOutput += String(buf);
           });
 
           child.stderr.on('data', function(buf) {
