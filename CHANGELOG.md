@@ -1,8 +1,8 @@
-### 0.6.2 (Not yet released)
+### 0.6.2 (28th April 2014)
 
 * Updated grunt dependency to 0.4.2.
 * Fixed example in README of outputting analysis to a file.
-* Fixed issue causing task to crash when processing files with extreme amounts of duplication.
+* Fixed issue causing task to crash when processing files with large amounts of duplication.
 
 ### 0.6.1 (September 13th 2013)
 
