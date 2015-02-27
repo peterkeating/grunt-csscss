@@ -74,7 +74,7 @@ module.exports = function(grunt) {
           outputJson: true
         },
         files: {
-          'ignore/output.json': ['test/example/style.css', 'test/example/shorthand.css']
+          'ignore/output.json': ['test/example/no-duplicates.css']
         }
       }
     }
